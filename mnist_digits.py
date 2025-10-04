@@ -12,6 +12,7 @@ SVM на Digits (8x8, 1797 зразків, 64 фічі)
 
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 import seaborn as sns
 
 from sklearn.datasets import load_digits
@@ -54,9 +55,16 @@ print(" • Digits 8×8 — рукописні цифри (0–9), 1797 зраз
 print(" • Кожна фіча — яскравість пікселя у розгортці 8×8 (рядковий порядок).")
 
 feature_names_digits = [f"pixel_{i}" for i in range(X_all.shape[1])]
-print("\nСписок фіч (перші 20):")
-print(" ", ", ".join(feature_names_digits[:20]), "...")
+print("\nСписок фіч:")
+print(" ", ", ".join(feature_names_digits), "...")
 print(f"Всього фіч: {len(feature_names_digits)}")
+
+# Створюємо DataFrame для зручного відображення
+df_preview = pd.DataFrame(X_all, columns=feature_names_digits)
+
+# Виводимо перші 5 рядків
+print("\nПерші 5 рядків (фрагмент даних):")
+print(df_preview.head().to_string(index=False))
 
 # Показати кілька зображень
 fig, axes = plt.subplots(2, 8, figsize=(12, 3))

@@ -58,9 +58,9 @@ print("Shape:", X_all.shape, "| classes:", dict(zip(class_names, np.bincount(y_a
 print("Опис датасету:")
 print(" • Breast Cancer Wisconsin — медичний датасет: 569 зразків, 30 числових фіч, бінарні класи: malignant (0), benign (1).")
 print(" • Кожна фіча — статистика текстури клітин на зображеннях біопсії (mean / se / worst для radius, texture, perimeter, area, smoothness тощо).")
-print("\nСписок фіч (перші 15):")
+print("\nСписок фіч:")
 all_feats = list(X_all.columns)
-print(" ", ", ".join(all_feats[:15]), "...")
+print(" ", ", ".join(all_feats), "...")
 print(f"Всього фіч: {len(all_feats)}")
 
 # Heatmap кореляцій (обмежимося топ-25 змінними за дисперсією, щоб графік був читабельний)
